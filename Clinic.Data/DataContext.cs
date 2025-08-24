@@ -11,14 +11,9 @@ namespace clinic
         public DbSet<PatientClass> ListPatient { get; set; }
         public DbSet<UserClass> userClass { get; set; }
 
-
-
-
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Clinic_db");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8ED3CL9;Database=ClinicDB;Trusted_Connection=True;TrustServerCertificate=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

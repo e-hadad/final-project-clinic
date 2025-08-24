@@ -46,20 +46,16 @@ namespace clinic.Controllers
         [HttpPost]
         public async Task<RoutesClass> PostAsync([FromBody] RouteModel value)
         {
-            /*   var newRoutes = new RoutesClass { Date = value.Date, StartTime = value.StartTime, EndTime = value.EndTime };
-               await _routesService.AddRoutesAsync(newRoutes);
-               return newRoutes;*/
+           
             return await _routesService.AddRoutesAsync(_mapper.Map<RoutesClass>(value));
 
-           /* return await _routesService.AddRoutesAsync(_mapper.Map<
-                RoutesClass>(value));*/
+           
         }
         // PUT api/<Routes>/5
         [HttpPut("{id}")]
         public async Task PutAsync(int id, [FromBody] RouteModel value)
         {
-            /* var newRoutes = new RoutesClass { Date = value.Date, StartTime = value.StartTime, EndTime = value.EndTime };
-             await _routesService.UpdateRoutesAsync(id, newRoutes);*/
+           
             await _routesService.UpdateRoutesAsync(id,_mapper.Map<RoutesClass>(value)); 
 
         }
@@ -67,8 +63,7 @@ namespace clinic.Controllers
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {
-         /*   var index = _routesService.GetRoutes().ToList().FindIndex(e => e.IdRoutes== id);
-            _routesService.GetRoutes().ToList().RemoveAt(index);*/
+        
          await _routesService.DeleteRoutesAsync(id);
         }
     }

@@ -88,13 +88,13 @@ builder.Services.AddCors(options =>
 });
 //builder.Services.AddSingleton<DataContext>(); 
 builder.Services.AddDbContext<DataContext>();
-builder.Services.AddScoped<IDoctorRepository,DoctorRepository>();
-builder.Services.AddScoped<IPatientRepository,PatientRepository>();
-builder.Services.AddScoped<IRoutesRepository,RoutesRepository>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IRoutesRepository, RoutesRepository>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IRoutesService, RoutesService>();
-builder.Services.AddAutoMapper(typeof(MappingProfile),typeof(MappingPostModel));
+builder.Services.AddAutoMapper(typeof(MappingProfile), typeof(MappingPostModel));
 
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();

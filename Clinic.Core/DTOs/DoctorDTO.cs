@@ -14,6 +14,5 @@ namespace Clinic.Core.DTOs
         public long Phone { get; set; }
         public string Email { get; set; }
         public int BusinessHours { get; set; }
-/*        public List<RoutesClass> Routess { get; set; }
-*/    }
+    }
 }

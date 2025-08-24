@@ -9,12 +9,7 @@ namespace Clinic.Core.Services
 {
     public interface IPatientService
     {
-        /* public IEnumerable<PatientClass> GetPatientAsync();
-         public PatientClass GetPatientByIdAsync(int id);
-         public void UpdatePatientAsync(int id, PatientClass patient);
-
-         public PatientClass AddPtientAsync(PatientClass patient);
-         public void DeletePatientAsync(int id);*/
+        
         public  Task<IEnumerable<PatientClass>> GetPatientAsync();
         public  Task<PatientClass> GetPatientByIdAsync(int id);
         public  Task<PatientClass> AddPtientAsync(PatientClass patient);

@@ -58,33 +58,26 @@ namespace clinic.Controllers
 
             var user = new UserClass { UserName = value.UserName, Password = value.Password, Role = eRole.patient };
             var User = await _userService.AddUserAsync(user);
-            var newCastomer = _mapper.Map<PatientClass>(value);
-            newCastomer.User = User;
-            newCastomer.Id = User.Id;
-            var Castomer = await _patientService.GetPatientByIdAsync(newCastomer.Id);
+            var newCustomer = _mapper.Map<PatientClass>(value);
+            newCustomer.User = User;
+            newCustomer.Id = User.Id;
+            var Castomer = await _patientService.GetPatientByIdAsync(newCustomer.Id);
             if (Castomer != null)
             {
                 return Conflict();
             }
-            await _patientService.AddPtientAsync(newCastomer);
+            await _patientService.AddPtientAsync(newCustomer);
             return Ok();
 
 
-            /* var newPatient=new PatientClass { Name = value.Name, Phone = value.Phone, Email = value.Email, Address = value.Address,age=value.age};
-             await _patientService.AddPtientAsync(newPatient);
-             return newPatient;*/
 
-
-/*            return await _patientService.AddPtientAsync(_mapper.Map<PatientClass>(value));
-*/
         }
 
         // PUT api/<patient>/5
         [HttpPut("{id}")]
         public async Task PutAsync(int id, [FromBody] PatientModel value)
         {
-            /*var newPatient = new PatientClass { Name = value.Name, Phone = value.Phone, Email = value.Email, Address = value.Address, age = value.age };
-             await _patientService.UpdatePatientAsync(id, newPatient);*/
+           
             await _patientService.UpdatePatientAsync(id, _mapper.Map<PatientClass>(value));
         }
 
@@ -93,8 +86,7 @@ namespace clinic.Controllers
         [HttpDelete("{id}")]
         public async Task DeleteAsync(int id)
         {
-           /* var index = _patientService.GetPatient().ToList().FindIndex(e => e.Id == id);
-            _patientService.GetPatient().ToList().RemoveAt(index);*/
+           
             await _patientService.DeletePatientAsync(id);
         }
     }

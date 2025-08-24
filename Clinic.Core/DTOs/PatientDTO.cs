@@ -15,7 +15,6 @@ namespace Clinic.Core.DTOs
         public string Email { get; set; }
         public string Address { get; set; }
         public double age {  get; set; }
-        /*        public List<RoutesClass> Routes { get; set; }
-        */
+
     }
 }

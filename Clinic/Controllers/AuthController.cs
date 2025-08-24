@@ -62,6 +62,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -77,6 +78,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
     {
         var user = await _userService.GetByUserNameAsync(loginModel.UserName, loginModel.Password);
